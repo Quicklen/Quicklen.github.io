@@ -1,0 +1,450 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>📖 О кафедре</h1>
+    <p>Кафедра компьютерной безопасности и прикладной алгебры математического факультета ЧелГУ</p>
+</div>
+
+<!-- Навигация подразделов -->
+<div class="subnav-enhanced">
+    <a href="/about/history" class="subnav-link">
+        <span class="subnav-icon">📜</span>
+        История кафедры
+    </a>
+    <a href="/about/specialty" class="subnav-link">
+        <span class="subnav-icon">🔐</span>
+        Специальность
+    </a>
+    <a href="/about/staff" class="subnav-link">
+        <span class="subnav-icon">👨‍🏫</span>
+        Преподаватели
+    </a>
+</div>
+
+<!-- Основная информация -->
+<div class="info-grid-about">
+    <div class="info-card-about">
+        <div class="card-icon">📍</div>
+        <h3>Адрес</h3>
+        <p>г. Челябинск, ул. Братьев Кашириных, 129, каб. 412</p>
+    </div>
+    
+    <div class="info-card-about">
+        <div class="card-icon">📞</div>
+        <h3>Телефон</h3>
+        <p>+7 (351) 799-72-92</p>
+    </div>
+    
+    <div class="info-card-about">
+        <div class="card-icon">📧</div>
+        <h3>Email</h3>
+        <p><a href="mailto:csukbcp2011@gmail.com">csukbcp2011@gmail.com</a></p>
+    </div>
+</div>
+
+<!-- Заведующий кафедрой -->
+<div class="head-section">
+    <h2>👨‍💼 Заведующий кафедрой</h2>
+    <div class="head-card-large">
+        <div class="head-photo-placeholder">
+            <span>static/images/ruchai.png</span>
+        </div>
+        <div class="head-info">
+            <h3>Ручай Алексей Николаевич</h3>
+            <p class="head-title">Кандидат физико-математических наук, доцент</p>
+            <div class="head-contact">
+                <span class="contact-badge">📧 csukbcp2011@gmail.com</span>
+                <span class="contact-badge">📞 +7 (351) 799-72-92</span>
+            </div>
+            <p class="head-desc">
+                Заведует кафедрой с 2018 года. Область научных интересов: 
+                компьютерная безопасность, криптография, анализ защищенности информационных систем.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Основные направления -->
+<div class="directions-section">
+    <h2>🎯 Основные направления деятельности</h2>
+    <div class="directions-grid">
+        <div class="direction-item">
+            <div class="direction-icon">🛡️</div>
+            <h3>Компьютерная безопасность</h3>
+            <p>Разработка методов и средств защиты информации, анализ защищенности компьютерных систем</p>
+        </div>
+        <div class="direction-item">
+            <div class="direction-icon">🔐</div>
+            <h3>Криптография</h3>
+            <p>Исследование криптографических алгоритмов, разработка систем шифрования</p>
+        </div>
+        <div class="direction-item">
+            <div class="direction-icon">🔍</div>
+            <h3>Цифровая криминалистика</h3>
+            <p>Методы расследования компьютерных преступлений, анализ цифровых доказательств</p>
+        </div>
+    </div>
+</div>
+
+<!-- Дополнительная информация -->
+<div class="additional-info">
+    <div class="info-block">
+        <h3>📊 Факты о кафедре</h3>
+        <ul class="facts-list">
+            <li>✅ Основана в 2001 году</li>
+            <li>✅ Более 500 выпускников</li>
+            <li>✅ 15 кандидатских и 3 докторские диссертации</li>
+            <li>✅ Партнерство с ведущими IT-компаниями</li>
+        </ul>
+    </div>
+    
+    <div class="info-block">
+        <h3>🎓 Образовательные программы</h3>
+        <ul class="facts-list">
+            <li>📘 10.05.01 - Компьютерная безопасность (специалитет)</li>
+            <li>📗 10.03.01 - Информационная безопасность (бакалавриат)</li>
+            <li>📙 10.04.01 - Информационная безопасность (магистратура)</li>
+            <li>📕 Дополнительное профессиональное образование</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+/* Улучшенная навигация подразделов */
+.subnav-enhanced {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    justify-content: center;
+}
+
+body.dark .subnav-enhanced {
+    background: #0f172a;
+}
+
+.subnav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: white;
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--chelgu-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .subnav-link {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+.subnav-link:hover {
+    background: var(--chelgu-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
+    text-decoration: none;
+}
+
+.subnav-icon {
+    font-size: 1.1rem;
+}
+
+/* Сетка контактов */
+.info-grid-about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-card-about {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.info-card-about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.15);
+}
+
+body.dark .info-card-about {
+    background: #111827;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-card-about h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+body.dark .info-card-about h3 {
+    color: #f1f5f9;
+}
+
+.info-card-about p {
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.info-card-about a {
+    color: var(--chelgu-secondary);
+    text-decoration: none;
+}
+
+.info-card-about a:hover {
+    text-decoration: underline;
+}
+
+/* Секция заведующего */
+.head-section {
+    margin: 3rem 0;
+}
+
+.head-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.head-card-large {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+body.dark .head-card-large {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.head-photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+}
+
+.head-info {
+    flex: 1;
+}
+
+.head-info h3 {
+    font-size: 1.5rem;
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+body.dark .head-info h3 {
+    color: #f1f5f9;
+}
+
+.head-title {
+    color: var(--chelgu-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.head-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--chelgu-primary);
+}
+
+body.dark .contact-badge {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+.head-desc {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+/* Направления деятельности */
+.directions-section {
+    margin: 3rem 0;
+}
+
+.directions-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.directions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.direction-item {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .direction-item {
+    background: #111827;
+}
+
+.direction-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.direction-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.direction-item h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+body.dark .direction-item h3 {
+    color: #f1f5f9;
+}
+
+.direction-item p {
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Дополнительная информация */
+.additional-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.info-block {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+body.dark .info-block {
+    background: #111827;
+}
+
+.info-block h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--chelgu-secondary);
+}
+
+body.dark .info-block h3 {
+    color: #f1f5f9;
+}
+
+.facts-list {
+    list-style: none;
+    padding: 0;
+}
+
+.facts-list li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.facts-list li:last-child {
+    border-bottom: none;
+}
+
+body.dark .facts-list li {
+    color: #e5e7eb;
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .head-card-large {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .head-contact {
+        justify-content: center;
+    }
+    
+    .info-grid-about {
+        grid-template-columns: 1fr;
+    }
+    
+    .directions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .additional-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .subnav-link {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+</style>
+
+{% endblock %}

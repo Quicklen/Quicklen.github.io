@@ -1,0 +1,763 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO секция -->
+<div class="hero-main">
+    <div class="hero-content">
+        <h1 class="hero-title">Кафедра компьютерной безопасности</h1>
+        <p class="hero-subtitle">Подготовка специалистов в области кибербезопасности, криптографии и защиты информации</p>
+        <div class="hero-buttons">
+            <a href="/about" class="btn btn-primary">О кафедре</a>
+            <a href="/applicant" class="btn btn-secondary">Поступающим</a>
+        </div>
+    </div>
+    <div class="hero-decoration">
+        <div class="decoration-shield">🛡️</div>
+    </div>
+</div>
+
+<!-- СТАТИСТИКА -->
+<div class="stats-wrapper">
+    <div class="stat-item-main">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">лет подготовки</div>
+    </div>
+    <div class="stat-item-main">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">выпускников</div>
+    </div>
+    <div class="stat-item-main">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">трудоустройство</div>
+    </div>
+    <div class="stat-item-main">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">партнеров</div>
+    </div>
+</div>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<div class="features-section">
+    <h2 class="section-title">Почему выбирают нас?</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Качественное образование</h3>
+            <p>Современные программы подготовки специалистов, актуальные требования рынка</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔬</div>
+            <h3>Научные исследования</h3>
+            <p>Активные исследования в области криптографии, ИБ и цифровой криминалистики</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>Практическая подготовка</h3>
+            <p>Реальные проекты, стажировки в ведущих IT-компаниях с первого курса</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Карьерные перспективы</h3>
+            <p>Высокий спрос на выпускников, работа в крупных компаниях и госструктурах</p>
+        </div>
+    </div>
+</div>
+
+<!-- НАПРАВЛЕНИЕ ПОДГОТОВКИ -->
+<div class="direction-preview">
+    <div class="direction-content">
+        <span class="direction-badge">Главная специальность</span>
+        <h2>10.05.01 — Компьютерная безопасность</h2>
+        <p>Специалитет, 5.5 лет, очная форма обучения</p>
+        <div class="direction-features">
+            <span>🔐 Криптография</span>
+            <span>🛡️ Анализ защищенности</span>
+            <span>🔍 Цифровая криминалистика</span>
+        </div>
+        <a href="/about/specialty" class="btn btn-outline">Подробнее о специальности →</a>
+    </div>
+</div>
+
+<!-- ПРЕПОДАВАТЕЛИ -->
+<div class="staff-preview">
+    <div class="section-header-with-link">
+        <h2 class="section-title">👨‍🏫 Наши преподаватели</h2>
+        <a href="/about/staff" class="link-all">Все преподаватели →</a>
+    </div>
+
+    {% if staff %}
+    <div class="staff-grid-home">
+        {% for s in staff[:4] %}
+        <a href="/staff/{{ s.id }}" class="staff-card-link">
+            <div class="staff-card-home">
+                <div class="staff-image-home">
+                    {% if s.photo_url %}
+                        <img src="{{ s.photo_url }}" alt="{{ s.fio }}" class="staff-photo-home">
+                    {% else %}
+                        <div class="staff-placeholder-home">
+                            <span>{{ s.fio[0]|upper }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                <h3 class="staff-name-home">{{ s.fio }}</h3>
+                <p class="staff-position-home">{{ s.position }}</p>
+                {% if s.degree %}
+                <p class="staff-degree-home">{{ s.degree }}</p>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    {% if staff|length > 4 %}
+    <div class="text-center" style="margin-top: 1.5rem;">
+        <a href="/about/staff" class="btn btn-secondary">Все преподаватели</a>
+    </div>
+    {% endif %}
+
+    {% else %}
+    <div class="empty-message">
+        <p>Сотрудники пока не добавлены.</p>
+    </div>
+    {% endif %}
+</div>
+
+<!-- НОВОСТИ -->
+<div class="news-preview">
+    <div class="section-header-with-link">
+        <h2 class="section-title">📰 Последние новости</h2>
+        <a href="/news" class="link-all">Все новости →</a>
+    </div>
+
+    {% if news %}
+    <div class="news-grid">
+        {% for n in news[:3] %}
+        <div class="news-card">
+            <div class="news-date">
+                <span class="date-day">{{ n.date.strftime('%d') }}</span>
+                <span class="date-month">{{ n.date.strftime('%b') }}</span>
+            </div>
+            <div class="news-content">
+                <h3 class="news-title">{{ n.title }}</h3>
+                <p class="news-excerpt">{{ n.content[:120] }}...</p>
+                <a href="/news/{{ n.id }}" class="news-link">Читать далее →</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center" style="margin-top: 1.5rem;">
+        <a href="/news" class="btn btn-secondary">Все новости</a>
+    </div>
+
+    {% else %}
+    <div class="empty-message">
+        <p>Новостей пока нет.</p>
+    </div>
+    {% endif %}
+</div>
+
+<!-- ПАРТНЕРЫ -->
+<div class="partners-section">
+    <h2 class="section-title">🤝 Наши партнеры</h2>
+    <div class="partners-grid">
+        <div class="partner-item">АО "ИнфоТеКС"</div>
+        <div class="partner-item">ООО "Код Безопасности"</div>
+        <div class="partner-item">ПАО "Сбербанк"</div>
+        <div class="partner-item">ФСБ России</div>
+        <div class="partner-item">Positive Technologies</div>
+        <div class="partner-item">Лаборатория Касперского</div>
+    </div>
+</div>
+
+<!-- CTA секция -->
+<div class="cta-section">
+    <div class="cta-content">
+        <h2>Хочешь стать специалистом по кибербезопасности?</h2>
+        <p>Присоединяйся к кафедре компьютерной безопасности ЧелГУ!</p>
+        <a href="/applicant" class="btn btn-large">Поступить сейчас →</a>
+    </div>
+</div>
+
+<style>
+/* HERO секция */
+.hero-main {
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    border-radius: var(--radius);
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-main::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 2.2rem;
+    margin: 0 0 1rem;
+    color: white;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--chelgu-primary) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white !important;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.hero-decoration {
+    font-size: 8rem;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.decoration-shield {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Статистика */
+.stats-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-item-main {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.stat-item-main:hover {
+    transform: translateY(-5px);
+}
+
+body.dark .stat-item-main {
+    background: #111827;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    line-height: 1;
+}
+
+body.dark .stat-number {
+    color: #60a5fa;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+/* Секция преимуществ */
+.features-section {
+    margin: 3rem 0;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--chelgu-primary);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+body.dark .section-title {
+    color: #f1f5f9;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.feature-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .feature-card {
+    background: #111827;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+body.dark .feature-card h3 {
+    color: #f1f5f9;
+}
+
+.feature-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Направление подготовки */
+.direction-preview {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+body.dark .direction-preview {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.direction-badge {
+    display: inline-block;
+    background: var(--chelgu-secondary);
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.direction-preview h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.direction-preview p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.direction-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.direction-features span {
+    background: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--chelgu-primary);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--chelgu-secondary);
+    color: var(--chelgu-secondary) !important;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+body.dark .btn-outline {
+    background: transparent;
+    border: 2px solid var(--chelgu-secondary);
+    color: var(--chelgu-secondary) !important;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.btn-outline:hover {
+    background: var(--chelgu-secondary);
+    color: white !important;
+}
+
+/* Преподаватели на главной */
+.staff-preview {
+    margin: 3rem 0;
+}
+
+.section-header-with-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.link-all {
+    color: var(--chelgu-secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link-all:hover {
+    text-decoration: underline;
+}
+
+.staff-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.staff-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.staff-card-home {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .staff-card-home {
+    background: #111827;
+}
+
+.staff-card-home:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.staff-image-home {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.staff-photo-home {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.staff-placeholder-home {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.staff-name-home {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--chelgu-primary);
+    margin: 0.5rem 0;
+}
+
+body.dark .staff-name-home {
+    color: #f1f5f9;
+}
+
+.staff-position-home {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0.3rem 0;
+}
+
+.staff-degree-home {
+    font-size: 0.8rem;
+    color: var(--chelgu-secondary);
+}
+
+/* Новости */
+.news-preview {
+    margin: 3rem 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .news-card {
+    background: #111827;
+}
+
+.news-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.news-date {
+    text-align: center;
+    min-width: 60px;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    padding: 0.5rem;
+}
+
+body.dark .news-date {
+    background: #1e293b;
+}
+
+.date-day {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+}
+
+.date-month {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-title {
+    font-size: 1.1rem;
+    color: var(--chelgu-primary);
+    margin: 0 0 0.5rem;
+}
+
+body.dark .news-title {
+    color: #f1f5f9;
+}
+
+.news-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.news-link {
+    color: var(--chelgu-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+/* Партнеры */
+.partners-section {
+    margin: 3rem 0;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.partner-item {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--chelgu-primary);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .partner-item {
+    background: #111827;
+    color: #cbd5e1;
+}
+
+.partner-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* CTA секция */
+.cta-section {
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    border-radius: var(--radius);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.cta-content h2 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.btn-large {
+    background: white;
+    color: var(--chelgu-primary) !important;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius);
+    color: var(--text-light);
+}
+
+body.dark .empty-message {
+    background: #111827;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-decoration {
+        display: none;
+    }
+    
+    .stats-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .staff-grid-home {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-header-with-link {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+{% endblock %}

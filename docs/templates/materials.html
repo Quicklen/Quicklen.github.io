@@ -1,0 +1,466 @@
+<!-- Список дисциплин -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>📚 Учебные материалы</h1>
+    <p>Выберите дисциплину для просмотра учебных материалов и литературы</p>
+</div>
+
+{% if disciplines %}
+    <!-- Статистика -->
+    <div class="stats-materials">
+        <div class="stat-box-materials">
+            <span class="stat-number-materials">{{ disciplines|length }}</span>
+            <span class="stat-text-materials">дисциплин</span>
+        </div>
+        <div class="stat-box-materials">
+            <span class="stat-number-materials">📖</span>
+            <span class="stat-text-materials">лекции, учебники, методички</span>
+        </div>
+        <div class="stat-box-materials">
+            <span class="stat-number-materials">🔗</span>
+            <span class="stat-text-materials">внешние ресурсы</span>
+        </div>
+    </div>
+
+    <!-- Поиск по дисциплинам -->
+    <div class="search-section">
+        <div class="search-wrapper">
+            <input type="text" id="disciplineSearch" placeholder="🔍 Поиск дисциплины..." class="search-input">
+            <button onclick="clearSearch()" class="search-clear" style="display: none;">✖</button>
+        </div>
+    </div>
+
+    <!-- Сетка дисциплин -->
+    <div class="disciplines-grid" id="disciplinesGrid">
+        {% for disc in disciplines %}
+        <a href="/materials/{{ disc }}" class="discipline-card-link">
+            <div class="discipline-card">
+                <div class="discipline-icon">
+                    {% set icons = ['📘', '📙', '📗', '📕', '📖', '🔐', '🛡️', '💻', '🔢', '🤖'] %}
+                    <span>{{ icons[loop.index0 % icons|length] }}</span>
+                </div>
+                <div class="discipline-info">
+                    <h3 class="discipline-name">{{ disc }}</h3>
+                    <p class="discipline-hint">Нажмите для просмотра материалов →</p>
+                </div>
+                <div class="discipline-arrow">→</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Сообщение при отсутствии результатов поиска -->
+    <div id="noResults" class="no-results" style="display: none;">
+        <div class="no-results-icon">🔍</div>
+        <h3>Ничего не найдено</h3>
+        <p>Попробуйте изменить поисковый запрос</p>
+    </div>
+
+    <!-- Дополнительная информация -->
+    <div class="info-materials">
+        <div class="info-card-materials">
+            <div class="info-icon-materials">💡</div>
+            <div class="info-content-materials">
+                <strong>Студентам и преподавателям</strong>
+                <p>В разделе представлены учебные материалы по основным дисциплинам кафедры компьютерной безопасности. 
+                Материалы включают лекции, методические указания, лабораторные работы и дополнительные ресурсы.</p>
+            </div>
+        </div>
+        
+        <div class="info-card-materials">
+            <div class="info-icon-materials">📢</div>
+            <div class="info-content-materials">
+                <strong>Обновление материалов</strong>
+                <p>Материалы регулярно обновляются. Если вы не нашли нужную дисциплину или материал, 
+                обратитесь к преподавателю или напишите на почту кафедры.</p>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <div class="empty-state-materials">
+        <div class="empty-icon-materials">📭</div>
+        <h3>Дисциплины пока не добавлены</h3>
+        <p>Учебные материалы появятся в ближайшее время.</p>
+        <a href="/" class="btn" style="margin-top: 1rem;">Вернуться на главную</a>
+    </div>
+{% endif %}
+
+<style>
+/* Статистика */
+.stats-materials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-box-materials {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .stat-box-materials {
+    background: #111827;
+}
+
+.stat-box-materials:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.stat-number-materials {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    line-height: 1;
+}
+
+body.dark .stat-number-materials {
+    color: #60a5fa;
+}
+
+.stat-text-materials {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
+
+/* Поиск */
+.search-section {
+    margin: 2rem 0;
+}
+
+.search-wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+body.dark .search-input {
+    background: #1e293b;
+    border-color: #334155;
+    color: white;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--chelgu-secondary);
+    box-shadow: 0 0 0 3px rgba(0, 85, 170, 0.1);
+}
+
+.search-clear {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-light);
+    padding: 0.2rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.search-clear:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+/* Сетка дисциплин */
+.disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+}
+
+.discipline-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.discipline-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+body.dark .discipline-card {
+    background: #111827;
+}
+
+.discipline-card:hover {
+    transform: translateX(5px);
+    border-color: var(--chelgu-secondary);
+    box-shadow: var(--shadow);
+}
+
+.discipline-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.discipline-info {
+    flex: 1;
+}
+
+.discipline-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--chelgu-primary);
+    margin: 0 0 0.3rem;
+}
+
+body.dark .discipline-name {
+    color: #f1f5f9;
+}
+
+.discipline-hint {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.discipline-arrow {
+    font-size: 1.2rem;
+    color: var(--chelgu-secondary);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.discipline-card:hover .discipline-arrow {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Нет результатов */
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: var(--radius);
+    margin: 2rem 0;
+}
+
+body.dark .no-results {
+    background: #111827;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.no-results h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.no-results p {
+    color: var(--text-light);
+}
+
+/* Информационные карточки */
+.info-materials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.info-card-materials {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--chelgu-secondary);
+    transition: all 0.3s ease;
+}
+
+body.dark .info-card-materials {
+    background: #0f172a;
+}
+
+.info-card-materials:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.info-icon-materials {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.info-content-materials {
+    flex: 1;
+}
+
+.info-content-materials strong {
+    display: block;
+    color: var(--chelgu-primary);
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+body.dark .info-content-materials strong {
+    color: #60a5fa;
+}
+
+.info-content-materials p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Пустое состояние */
+.empty-state-materials {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+}
+
+body.dark .empty-state-materials {
+    background: #111827;
+}
+
+.empty-icon-materials {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state-materials h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state-materials p {
+    color: var(--text-light);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .stats-materials {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .disciplines-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .discipline-card {
+        padding: 1rem;
+    }
+    
+    .discipline-icon {
+        font-size: 2rem;
+    }
+    
+    .discipline-name {
+        font-size: 1rem;
+    }
+    
+    .info-materials {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+// Поиск по дисциплинам
+const searchInput = document.getElementById('disciplineSearch');
+const disciplinesGrid = document.getElementById('disciplinesGrid');
+const noResults = document.getElementById('noResults');
+const clearBtn = document.querySelector('.search-clear');
+
+function filterDisciplines() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    const cards = disciplinesGrid.querySelectorAll('.discipline-card-link');
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+        const disciplineName = card.querySelector('.discipline-name').textContent.toLowerCase();
+        if (disciplineName.includes(searchTerm)) {
+            card.style.display = 'block';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Показываем/скрываем сообщение об отсутствии результатов
+    if (visibleCount === 0 && searchTerm !== '') {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
+    }
+    
+    // Показываем/скрываем кнопку очистки
+    if (searchTerm !== '') {
+        clearBtn.style.display = 'block';
+    } else {
+        clearBtn.style.display = 'none';
+    }
+}
+
+function clearSearch() {
+    searchInput.value = '';
+    filterDisciplines();
+    searchInput.focus();
+}
+
+// Добавляем обработчик события
+searchInput.addEventListener('input', filterDisciplines);
+
+// Анимация появления карточек при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.discipline-card-link');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.3s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 50);
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,638 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>👨‍🎓 Студенту</h1>
+    <p>Всё для успешной учебы, развития и карьеры</p>
+</div>
+
+<!-- Быстрые ссылки -->
+<div class="quick-links-section">
+    <div class="section-header">
+        <span class="section-icon">🔗</span>
+        <h2>Полезные ссылки</h2>
+    </div>
+    <div class="links-grid">
+        <a href="/materials" class="link-card">
+            <div class="link-icon">📚</div>
+            <div class="link-info">
+                <h3>Учебные материалы</h3>
+                <p>Лекции, методички, лабораторные работы</p>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        
+        <a href="https://lk.csu.ru" target="_blank" class="link-card">
+            <div class="link-icon">🔐</div>
+            <div class="link-info">
+                <h3>Личный кабинет студента</h3>
+                <p>Расписание, оценки, учебный план</p>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        
+        <a href="https://www.csu.ru/students/timetable/zan/" target="_blank" class="link-card">
+            <div class="link-icon">📅</div>
+            <div class="link-info">
+                <h3>Расписание занятий</h3>
+                <p>Актуальное расписание пар</p>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        
+        <a href="https://vk.com/libcsu" target="_blank" class="link-card">
+            <div class="link-icon">📖</div>
+            <div class="link-info">
+                <h3>Библиотека ЧелГУ</h3>
+                <p>Электронные ресурсы, книги, статьи</p>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        
+        <a href="https://e-learning.csu.ru" target="_blank" class="link-card">
+            <div class="link-icon">💻</div>
+            <div class="link-info">
+                <h3>Электронное обучение</h3>
+                <p>Платформа Moodle, онлайн-курсы</p>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+        
+        <a href="https://www.csu.ru/students/science/Pages/default.aspx" target="_blank" class="link-card">
+            <div class="link-icon">🔬</div>
+            <div class="link-info">
+                <h3>Студенческая наука</h3>
+                <p>Конференции, конкурсы, гранты</p>
+            </div>
+            <div class="link-arrow">→</div>
+        </a>
+    </div>
+</div>
+
+<!-- Практика и трудоустройство -->
+<div class="practice-section">
+    <div class="section-header">
+        <span class="section-icon">💼</span>
+        <h2>Практика и трудоустройство</h2>
+    </div>
+    <p class="section-subtitle">Студенты кафедры проходят практику и успешно трудоустраиваются в ведущих организациях:</p>
+    
+    <div class="employers-grid">
+        <div class="employer-card">
+            <div class="employer-icon">🏛️</div>
+            <h3>ФСБ России</h3>
+            <p>Практика в органах государственной безопасности</p>
+        </div>
+        
+        <div class="employer-card">
+            <div class="employer-icon">👮</div>
+            <h3>МВД России</h3>
+            <p>Подразделения по борьбе с киберпреступностью</p>
+        </div>
+        
+        <div class="employer-card">
+            <div class="employer-icon">📡</div>
+            <h3>Ростелеком</h3>
+            <p>Крупнейший провайдер цифровых услуг</p>
+        </div>
+        
+        <div class="employer-card">
+            <div class="employer-icon">🏦</div>
+            <h3>Сбербанк (CyberSecurity)</h3>
+            <p>Центр кибербезопасности Сбера</p>
+        </div>
+        
+        <div class="employer-card">
+            <div class="employer-icon">🛡️</div>
+            <h3>Лаборатория Касперского</h3>
+            <p>Международная компания в сфере ИБ</p>
+        </div>
+        
+        <div class="employer-card">
+            <div class="employer-icon">🔒</div>
+            <h3>Positive Technologies</h3>
+            <p>Лидер в области безопасности приложений</p>
+        </div>
+    </div>
+    
+    <div class="practice-note">
+        <div class="note-icon">💡</div>
+        <div class="note-content">
+            <strong>Студенты старших курсов:</strong> Для прохождения практики обратитесь к руководителю кафедры или в отдел практики.
+        </div>
+    </div>
+</div>
+
+<!-- Студенческие проекты -->
+<div class="projects-section">
+    <div class="section-header">
+        <span class="section-icon">🚀</span>
+        <h2>Студенческие проекты и активности</h2>
+    </div>
+    
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-icon">🏆</div>
+            <h3>CTF-соревнования</h3>
+            <p>Capture The Flag — соревнования по информационной безопасности. Участвуйте в команде кафедры!</p>
+            <div class="project-tags">
+                <span class="project-tag">Ежегодно</span>
+                <span class="project-tag">Командные</span>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-icon">💡</div>
+            <h3>Хакатоны</h3>
+            <p>Интенсивные соревнования по разработке решений для реальных задач в области ИБ</p>
+            <div class="project-tags">
+                <span class="project-tag">Всероссийские</span>
+                <span class="project-tag">Призовые места</span>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-icon">🔬</div>
+            <h3>Научные кружки</h3>
+            <p>Еженедельные встречи, обсуждение актуальных исследований, подготовка публикаций</p>
+            <div class="project-tags">
+                <span class="project-tag">Криптография</span>
+                <span class="project-tag">Анализ защищенности</span>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-icon">📝</div>
+            <h3>Студенческие публикации</h3>
+            <p>Возможность опубликовать свои исследования в научных сборниках</p>
+            <div class="project-tags">
+                <span class="project-tag">РИНЦ</span>
+                <span class="project-tag">Scopus</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Студенческая жизнь -->
+<div class="student-life-section">
+    <div class="student-life-content">
+        <div class="student-life-icon">🎉</div>
+        <div class="student-life-info">
+            <h3>Студенческая жизнь</h3>
+            <p>Кафедра регулярно проводит студенческие мероприятия, дни карьеры, встречи с работодателями, 
+            экскурсии в IT-компании и научно-популярные лекции от приглашенных экспертов.</p>
+            <div class="life-activities">
+                <span>📅 Дни карьеры</span>
+                <span>🏀 Спортивные мероприятия</span>
+                <span>🎭 Студенческий театр</span>
+                <span>🌍 Волонтерство</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Контакты для студентов -->
+<div class="contacts-student">
+    <div class="section-header">
+        <span class="section-icon">📞</span>
+        <h2>Контакты для студентов</h2>
+    </div>
+    <div class="contacts-student-grid">
+        <div class="contact-student-card">
+            <div class="contact-icon">👨‍🏫</div>
+            <div class="contact-details">
+                <strong>Заведующий кафедрой</strong>
+                <p>Ручай Алексей Николаевич</p>
+                <a href="mailto:csukbcp2011@gmail.com">csukbcp2011@gmail.com</a>
+            </div>
+        </div>
+        <div class="contact-student-card">
+            <div class="contact-icon">📘</div>
+            <div class="contact-details">
+                <strong>Учебная часть</strong>
+                <p>Аудитория 412</p>
+                <p>📞 +7 (351) 799-72-92</p>
+            </div>
+        </div>
+        <div class="contact-student-card">
+            <div class="contact-icon">💬</div>
+            <div class="contact-details">
+                <strong>Студенческий чат</strong>
+                <p><a href="https://t.me/kbandpa" target="_blank">Telegram-канал кафедры</a></p>
+                <p><a href="https://vk.com/kb_csu_ru" target="_blank">Группа ВКонтакте</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Общие стили */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-icon {
+    font-size: 2rem;
+}
+
+.section-header h2 {
+    color: var(--chelgu-primary);
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+body.dark .section-header h2 {
+    color: #f1f5f9;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Сетка ссылок */
+.quick-links-section {
+    margin: 3rem 0;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .link-card {
+    background: #111827;
+}
+
+.link-card:hover {
+    transform: translateX(5px);
+    border-color: var(--chelgu-secondary);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+}
+
+.link-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.link-info {
+    flex: 1;
+}
+
+.link-info h3 {
+    color: var(--chelgu-primary);
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+}
+
+body.dark .link-info h3 {
+    color: #f1f5f9;
+}
+
+.link-info p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.link-arrow {
+    font-size: 1.2rem;
+    color: var(--chelgu-secondary);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.link-card:hover .link-arrow {
+    opacity: 1;
+}
+
+/* Работодатели */
+.practice-section {
+    margin: 3rem 0;
+}
+
+.employers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.employer-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .employer-card {
+    background: #111827;
+}
+
+.employer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.employer-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.employer-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+body.dark .employer-card h3 {
+    color: #f1f5f9;
+}
+
+.employer-card p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.practice-note {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #e7f3ff;
+    border-radius: var(--radius);
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--chelgu-secondary);
+}
+
+body.dark .practice-note {
+    background: #0f172a;
+}
+
+.note-icon {
+    font-size: 1.2rem;
+}
+
+.note-content {
+    flex: 1;
+    color: var(--text-color);
+}
+
+.note-content strong {
+    color: var(--chelgu-primary);
+}
+
+/* Проекты */
+.projects-section {
+    margin: 3rem 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .project-card {
+    background: #111827;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.project-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+body.dark .project-card h3 {
+    color: #f1f5f9;
+}
+
+.project-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tag {
+    background: #f8f9fa;
+    color: var(--chelgu-primary);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+body.dark .project-tag {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+/* Студенческая жизнь */
+.student-life-section {
+    margin: 3rem 0;
+}
+
+.student-life-content {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body.dark .student-life-content {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.student-life-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.student-life-info {
+    flex: 1;
+}
+
+.student-life-info h3 {
+    color: var(--chelgu-primary);
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+}
+
+body.dark .student-life-info h3 {
+    color: #f1f5f9;
+}
+
+.student-life-info p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.life-activities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.life-activities span {
+    background: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--chelgu-primary);
+}
+
+body.dark .life-activities span {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+/* Контакты */
+.contacts-student {
+    margin: 3rem 0;
+}
+
+.contacts-student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.contact-student-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+body.dark .contact-student-card {
+    background: #111827;
+}
+
+.contact-student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.contact-details strong {
+    display: block;
+    color: var(--chelgu-primary);
+    margin-bottom: 0.3rem;
+}
+
+body.dark .contact-details strong {
+    color: #60a5fa;
+}
+
+.contact-details p {
+    color: var(--text-color);
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+.contact-details a {
+    color: var(--chelgu-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .links-grid,
+    .employers-grid,
+    .projects-grid,
+    .contacts-student-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-icon {
+        font-size: 1.5rem;
+    }
+    
+    .student-life-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .life-activities {
+        justify-content: center;
+    }
+    
+    .link-card {
+        padding: 1rem;
+    }
+    
+    .project-card {
+        padding: 1.2rem;
+    }
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,450 @@
+<!-- Список материалов по дисциплине -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>📚 {{ discipline }}</h1>
+    <p>Учебные материалы по дисциплине</p>
+</div>
+
+<!-- Навигация назад -->
+<div style="margin-bottom: 2rem;">
+    <a href="/materials" class="btn" style="background: #6c757d; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ← Назад к списку дисциплин
+    </a>
+</div>
+
+{% if materials %}
+    <!-- Статистика материалов -->
+    <div class="materials-stats">
+        <div class="stat-box">
+            <span class="stat-number">{{ materials|length }}</span>
+            <span class="stat-text">материалов</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">{{ materials|selectattr('year', 'defined')|list|length }}</span>
+            <span class="stat-text">с указанием года</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">{{ materials|selectattr('external_link', 'defined')|list|length }}</span>
+            <span class="stat-text">внешних ссылок</span>
+        </div>
+    </div>
+
+    <!-- Сетка материалов -->
+    <div class="materials-grid">
+        {% for m in materials %}
+        <div class="material-card">
+            <div class="material-header">
+                <div class="material-type">
+                    {% if m.external_link %}
+                    <span class="type-badge external">🔗 Внешний ресурс</span>
+                    {% else %}
+                    <span class="type-badge internal">📄 Внутренний</span>
+                    {% endif %}
+                </div>
+                <h3 class="material-title">{{ m.title }}</h3>
+            </div>
+            
+            <div class="material-meta">
+                <div class="meta-item">
+                    <span class="meta-icon">👨‍🏫</span>
+                    <span class="meta-text"><strong>Автор:</strong> {{ m.author }}</span>
+                </div>
+                {% if m.year %}
+                <div class="meta-item">
+                    <span class="meta-icon">📅</span>
+                    <span class="meta-text"><strong>Год:</strong> {{ m.year }}</span>
+                </div>
+                {% endif %}
+                {% if m.discipline %}
+                <div class="meta-item">
+                    <span class="meta-icon">📚</span>
+                    <span class="meta-text"><strong>Дисциплина:</strong> {{ m.discipline }}</span>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="material-description">
+                <p>{{ m.description[:200] }}{% if m.description|length > 200 %}…{% endif %}</p>
+                {% if m.description|length > 200 %}
+                <button class="read-more-btn" onclick="toggleDescription(this)">Читать полностью</button>
+                <div class="full-description" style="display: none;">
+                    <p>{{ m.description }}</p>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="material-actions">
+                <a href="/preview/{{ m.id }}" class="action-btn preview-btn">
+                    <span class="btn-icon">👁️</span>
+                    Предпросмотр
+                </a>
+                {% if m.external_link %}
+                <a href="{{ m.external_link }}" target="_blank" class="action-btn external-btn">
+                    <span class="btn-icon">🔗</span>
+                    Перейти к источнику
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Дополнительная информация -->
+    <div class="info-note-material">
+        <div class="note-icon">💡</div>
+        <div class="note-content">
+            <strong>Совет:</strong> Для просмотра материалов нажмите "Предпросмотр". 
+            Некоторые материалы могут быть доступны по внешним ссылкам.
+        </div>
+    </div>
+
+{% else %}
+    <div class="empty-state">
+        <div class="empty-icon">📭</div>
+        <h3>Материалы пока не добавлены</h3>
+        <p>По данной дисциплине пока нет учебных материалов. Пожалуйста, загляните позже.</p>
+        <a href="/materials" class="btn" style="margin-top: 1rem;">Вернуться к списку дисциплин</a>
+    </div>
+{% endif %}
+
+<style>
+/* Статистика */
+.materials-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .stat-box {
+    background: #111827;
+}
+
+.stat-box:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    line-height: 1;
+}
+
+body.dark .stat-number {
+    color: #60a5fa;
+}
+
+.stat-text {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
+
+/* Сетка материалов */
+.materials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.material-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+body.dark .material-card {
+    background: #111827;
+}
+
+.material-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.15);
+}
+
+.material-header {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 1.2rem 1.5rem;
+    border-bottom: 2px solid var(--chelgu-secondary);
+}
+
+body.dark .material-header {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.material-type {
+    margin-bottom: 0.5rem;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.type-badge.internal {
+    background: #28a745;
+    color: white;
+}
+
+.type-badge.external {
+    background: #17a2b8;
+    color: white;
+}
+
+.material-title {
+    font-size: 1.3rem;
+    color: var(--chelgu-primary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+body.dark .material-title {
+    color: #f1f5f9;
+}
+
+/* Мета информация */
+.material-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: #fafafa;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark .material-meta {
+    background: #0f172a;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.meta-icon {
+    font-size: 1rem;
+}
+
+.meta-text {
+    color: var(--text-light);
+}
+
+.meta-text strong {
+    color: var(--chelgu-primary);
+}
+
+body.dark .meta-text strong {
+    color: #60a5fa;
+}
+
+/* Описание */
+.material-description {
+    padding: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.material-description p {
+    margin: 0;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--chelgu-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.read-more-btn:hover {
+    color: var(--chelgu-primary);
+    text-decoration: underline;
+}
+
+.full-description {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+/* Действия */
+.material-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #fafafa;
+    border-top: 1px solid var(--border-color);
+}
+
+body.dark .material-actions {
+    background: #0f172a;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.preview-btn {
+    background: var(--chelgu-primary);
+    color: white;
+}
+
+.preview-btn:hover {
+    background: var(--chelgu-primary-dark);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+}
+
+.external-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.external-btn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+/* Информационная заметка */
+.info-note-material {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #e7f3ff;
+    border-radius: var(--radius);
+    margin: 2rem 0;
+    border-left: 4px solid var(--chelgu-secondary);
+}
+
+body.dark .info-note-material {
+    background: #0f172a;
+}
+
+.note-icon {
+    font-size: 1.5rem;
+}
+
+.note-content {
+    flex: 1;
+    color: var(--text-color);
+}
+
+.note-content strong {
+    color: var(--chelgu-primary);
+}
+
+/* Пустое состояние */
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+}
+
+body.dark .empty-state {
+    background: #111827;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .materials-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .material-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .material-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        justify-content: center;
+    }
+    
+    .material-title {
+        font-size: 1.1rem;
+    }
+}
+</style>
+
+<script>
+function toggleDescription(btn) {
+    const fullDesc = btn.nextElementSibling;
+    if (fullDesc.style.display === 'none' || !fullDesc.style.display) {
+        fullDesc.style.display = 'block';
+        btn.textContent = 'Свернуть';
+    } else {
+        fullDesc.style.display = 'none';
+        btn.textContent = 'Читать полностью';
+    }
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,488 @@
+<!-- templates/news.html -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>📰 Новости кафедры</h1>
+    <p>Актуальные события, достижения и объявления</p>
+</div>
+
+{% if news %}
+    <!-- Статистика -->
+    <div class="news-stats">
+        <div class="stat-news-item">
+            <span class="stat-news-number">{{ news|length }}</span>
+            <span class="stat-news-label">всего новостей</span>
+        </div>
+        <div class="stat-news-item">
+            <span class="stat-news-number">{{ news|selectattr('external_link', 'defined')|list|length }}</span>
+            <span class="stat-news-label">с внешними ссылками</span>
+        </div>
+        <div class="stat-news-item">
+            <span class="stat-news-number">{{ (news|map(attribute='date')|max).strftime('%d.%m.%Y') if news else '-' }}</span>
+            <span class="stat-news-label">последнее обновление</span>
+        </div>
+    </div>
+
+    <!-- Сетка новостей -->
+    <div class="news-grid-advanced">
+        {% for n in news %}
+        <div class="news-card-advanced">
+            <div class="news-date-advanced">
+                <div class="date-day-advanced">{{ n.date.strftime('%d') }}</div>
+                <div class="date-month-advanced">{{ n.date.strftime('%B') }}</div>
+                <div class="date-year-advanced">{{ n.date.strftime('%Y') }}</div>
+            </div>
+            <div class="news-content-advanced">
+                <h3 class="news-title-advanced">{{ n.title }}</h3>
+                {% if n.content %}
+                <div class="news-text">
+                    <p>{{ n.content[:300] }}{% if n.content|length > 300 %}...{% endif %}</p>
+                    {% if n.content|length > 300 %}
+                    <button class="read-more-news" onclick="toggleNewsContent(this)">Читать полностью</button>
+                    <div class="full-news-content" style="display: none;">
+                        <p>{{ n.content }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% if n.external_link %}
+                <div class="news-link-advanced">
+                    <a href="{{ n.external_link }}" target="_blank" class="news-external-link">
+                        <span>🔗</span> Читать на сайте кафедры
+                        <span class="link-arrow">↗</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Дополнительная информация -->
+    <div class="news-footer-info">
+        <div class="info-box-news">
+            <div class="info-icon-news">📢</div>
+            <div class="info-text-news">
+                <strong>Подпишитесь на наши новости</strong>
+                <p>Следите за актуальными событиями в социальных сетях и на официальном сайте кафедры</p>
+                <div class="social-links-news">
+                    <a href="https://vk.com/kb_csu_ru" target="_blank" class="social-link-news vk">ВКонтакте</a>
+                    <a href="https://t.me/kbandpa" target="_blank" class="social-link-news telegram">Telegram</a>
+                    <a href="http://kb.csu.ru" target="_blank" class="social-link-news website">Сайт кафедры</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <div class="empty-state-news">
+        <div class="empty-icon-news">📭</div>
+        <h3>Новостей пока нет</h3>
+        <p>Будьте в курсе событий — новости появятся в ближайшее время</p>
+        <div class="empty-actions">
+            <a href="/" class="btn">Вернуться на главную</a>
+            <a href="https://vk.com/kb_csu_ru" target="_blank" class="btn btn-outline">Подписаться на новости</a>
+        </div>
+    </div>
+{% endif %}
+
+<style>
+/* Статистика */
+.news-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-news-item {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .stat-news-item {
+    background: #111827;
+}
+
+.stat-news-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.stat-news-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    line-height: 1;
+}
+
+body.dark .stat-news-number {
+    color: #60a5fa;
+}
+
+.stat-news-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.3rem;
+}
+
+/* Сетка новостей */
+.news-grid-advanced {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.news-card-advanced {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+body.dark .news-card-advanced {
+    background: #111827;
+}
+
+.news-card-advanced:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow);
+    border-color: var(--chelgu-secondary);
+}
+
+/* Дата */
+.news-date-advanced {
+    text-align: center;
+    min-width: 80px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    padding: 1rem 0.5rem;
+    transition: all 0.3s ease;
+}
+
+body.dark .news-date-advanced {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.news-card-advanced:hover .news-date-advanced {
+    transform: scale(1.05);
+}
+
+.date-day-advanced {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    line-height: 1;
+}
+
+body.dark .date-day-advanced {
+    color: #60a5fa;
+}
+
+.date-month-advanced {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+}
+
+.date-year-advanced {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-top: 0.2rem;
+}
+
+/* Контент новости */
+.news-content-advanced {
+    flex: 1;
+}
+
+.news-title-advanced {
+    font-size: 1.3rem;
+    color: var(--chelgu-primary);
+    margin: 0 0 0.8rem;
+    line-height: 1.4;
+}
+
+body.dark .news-title-advanced {
+    color: #f1f5f9;
+}
+
+.news-text {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.news-text p {
+    margin: 0;
+}
+
+.read-more-news {
+    background: none;
+    border: none;
+    color: var(--chelgu-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.read-more-news:hover {
+    color: var(--chelgu-primary);
+    text-decoration: underline;
+}
+
+.full-news-content {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+/* Ссылка на внешний ресурс */
+.news-link-advanced {
+    margin-top: 1rem;
+}
+
+.news-external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--chelgu-primary);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+body.dark .news-external-link {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+.news-external-link:hover {
+    background: var(--chelgu-primary);
+    color: white;
+    transform: translateX(3px);
+    text-decoration: none;
+}
+
+.link-arrow {
+    transition: transform 0.2s;
+}
+
+.news-external-link:hover .link-arrow {
+    transform: translateX(3px);
+}
+
+/* Футер с информацией */
+.news-footer-info {
+    margin: 3rem 0;
+}
+
+.info-box-news {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body.dark .info-box-news {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.info-icon-news {
+    font-size: 2.5rem;
+}
+
+.info-text-news {
+    flex: 1;
+}
+
+.info-text-news strong {
+    display: block;
+    color: var(--chelgu-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+body.dark .info-text-news strong {
+    color: #60a5fa;
+}
+
+.info-text-news p {
+    color: var(--text-light);
+    margin: 0 0 1rem;
+}
+
+.social-links-news {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.social-link-news {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.social-link-news.vk {
+    background: #4c75a3;
+    color: white;
+}
+
+.social-link-news.telegram {
+    background: #0088cc;
+    color: white;
+}
+
+.social-link-news.website {
+    background: var(--chelgu-primary);
+    color: white;
+}
+
+.social-link-news:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    text-decoration: none;
+    color: white;
+}
+
+/* Пустое состояние */
+.empty-state-news {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+}
+
+body.dark .empty-state-news {
+    background: #111827;
+}
+
+.empty-icon-news {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.empty-state-news h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state-news p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.empty-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--chelgu-secondary);
+    color: var(--chelgu-secondary) !important;
+}
+
+.btn-outline:hover {
+    background: var(--chelgu-secondary);
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .news-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .news-card-advanced {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .news-date-advanced {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 0.5rem;
+        min-width: auto;
+        padding: 0.5rem;
+    }
+    
+    .date-day-advanced {
+        font-size: 1.2rem;
+    }
+    
+    .date-month-advanced,
+    .date-year-advanced {
+        font-size: 0.7rem;
+    }
+    
+    .news-title-advanced {
+        font-size: 1.1rem;
+    }
+    
+    .info-box-news {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-links-news {
+        justify-content: center;
+    }
+    
+    .empty-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+function toggleNewsContent(btn) {
+    const fullContent = btn.nextElementSibling;
+    if (fullContent.style.display === 'none' || !fullContent.style.display) {
+        fullContent.style.display = 'block';
+        btn.textContent = 'Свернуть';
+    } else {
+        fullContent.style.display = 'none';
+        btn.textContent = 'Читать полностью';
+    }
+}
+</script>
+
+{% endblock %}
