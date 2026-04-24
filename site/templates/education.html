@@ -1,0 +1,549 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>📚 Учебная деятельность</h1>
+    <p>Качественное образование в области компьютерной безопасности</p>
+</div>
+
+<!-- Навигация по странице -->
+<div class="page-nav">
+    <a href="#direction" class="nav-pill">Направление</a>
+    <a href="#profiles" class="nav-pill">Профили</a>
+    <a href="#disciplines" class="nav-pill">Дисциплины</a>
+    <a href="#skills" class="nav-pill">Навыки</a>
+</div>
+
+<!-- Направление подготовки -->
+<div id="direction" class="section-card">
+    <div class="section-header">
+        <span class="section-icon">🎯</span>
+        <h2>Направление подготовки</h2>
+    </div>
+    <div class="direction-card">
+        <div class="direction-code">10.05.01</div>
+        <div class="direction-name">Компьютерная безопасность</div>
+        <div class="direction-details">
+            <span class="detail-badge">📘 Специалитет</span>
+            <span class="detail-badge">⏱️ 5.5 лет</span>
+            <span class="detail-badge">🎓 Специалист по защите информации</span>
+        </div>
+        <div class="direction-desc">
+            <p>Специальность готовит высококвалифицированных специалистов в области обеспечения 
+            информационной безопасности компьютерных систем, сетей и инфраструктур.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Профили подготовки -->
+<div id="profiles" class="section-card">
+    <div class="section-header">
+        <span class="section-icon">📌</span>
+        <h2>Профили подготовки</h2>
+    </div>
+    <div class="profiles-grid">
+        <div class="profile-card">
+            <div class="profile-icon">🛡️</div>
+            <h3>Безопасность компьютерных систем</h3>
+            <p>Анализ защищенности, разработка систем защиты, администрирование безопасных систем</p>
+        </div>
+        <div class="profile-card">
+            <div class="profile-icon">🔐</div>
+            <h3>Криптография и защита данных</h3>
+            <p>Разработка криптографических алгоритмов, защита информации, шифрование данных</p>
+        </div>
+        <div class="profile-card">
+            <div class="profile-icon">🔍</div>
+            <h3>Цифровая криминалистика</h3>
+            <p>Расследование компьютерных преступлений, анализ цифровых доказательств</p>
+        </div>
+    </div>
+</div>
+
+<!-- Учебные дисциплины -->
+<div id="disciplines" class="section-card">
+    <div class="section-header">
+        <span class="section-icon">📖</span>
+        <h2>Учебные дисциплины</h2>
+    </div>
+    <p class="section-subtitle">Студенты изучают современные и востребованные дисциплины:</p>
+    
+    <div class="disciplines-grid">
+        <div class="discipline-category">
+            <div class="category-header">
+                <span class="category-icon">🤖</span>
+                <h3>Современные технологии</h3>
+            </div>
+            <ul class="discipline-list">
+                <li>Машинное обучение и искусственный интеллект</li>
+                <li>Администрирование Linux и защита публичных служб</li>
+                <li>Разработка защищенных приложений</li>
+            </ul>
+        </div>
+        
+        <div class="discipline-category">
+            <div class="category-header">
+                <span class="category-icon">🔢</span>
+                <h3>Математические основы</h3>
+            </div>
+            <ul class="discipline-list">
+                <li>Дискретная математика</li>
+                <li>Теоретико-числовые методы в криптографии</li>
+                <li>Алгебра и теория чисел</li>
+            </ul>
+        </div>
+        
+        <div class="discipline-category">
+            <div class="category-header">
+                <span class="category-icon">🛡️</span>
+                <h3>Профессиональные дисциплины</h3>
+            </div>
+            <ul class="discipline-list">
+                <li>Техническая защита информации</li>
+                <li>Модели безопасности компьютерных систем</li>
+                <li>Криптографические методы защиты информации</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Ключевые навыки -->
+<div id="skills" class="section-card">
+    <div class="section-header">
+        <span class="section-icon">⚡</span>
+        <h2>Ключевые навыки выпускников</h2>
+    </div>
+    <div class="skills-container">
+        <div class="skill-tag">Анализ защищенности</div>
+        <div class="skill-tag">Разработка систем защиты</div>
+        <div class="skill-tag">Криптография</div>
+        <div class="skill-tag">Веб-безопасность</div>
+        <div class="skill-tag">Сетевая безопасность</div>
+        <div class="skill-tag">Цифровая криминалистика</div>
+        <div class="skill-tag">Программирование (Python, C++, Java)</div>
+        <div class="skill-tag">Администрирование Linux</div>
+        <div class="skill-tag">Моделирование угроз</div>
+        <div class="skill-tag">Пентест</div>
+    </div>
+</div>
+
+<!-- Практика и стажировки -->
+<div class="practice-section">
+    <div class="section-header">
+        <span class="section-icon">💼</span>
+        <h2>Практика и стажировки</h2>
+    </div>
+    <div class="practice-grid">
+        <div class="practice-card">
+            <div class="practice-icon">🏢</div>
+            <h3>Базы практики</h3>
+            <p>Крупные IT-компании, банки, государственные структуры, центры информационной безопасности</p>
+        </div>
+        <div class="practice-card">
+            <div class="practice-icon">🤝</div>
+            <h3>Партнеры</h3>
+            <p>АО "ИнфоТеКС", ООО "Код Безопасности", ПАО "Сбербанк", ФСБ России</p>
+        </div>
+        <div class="practice-card">
+            <div class="practice-icon">🎯</div>
+            <h3>Проектная деятельность</h3>
+            <p>Участие в реальных проектах, хакатонах, конкурсах по информационной безопасности</p>
+        </div>
+    </div>
+</div>
+
+<!-- Дополнительная информация -->
+<div class="extra-info">
+    <div class="info-tip">
+        <span class="tip-icon">💡</span>
+        <div>
+            <strong>Студенческие научные кружки</strong>
+            <p>На кафедре действуют научные кружки по криптографии, анализу защищенности и цифровой криминалистике</p>
+        </div>
+    </div>
+    <div class="info-tip">
+        <span class="tip-icon">🎓</span>
+        <div>
+            <strong>Повышение квалификации</strong>
+            <p>Возможность получения дополнительных сертификатов и квалификаций в области ИБ</p>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Навигация по странице */
+.page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.nav-pill {
+    padding: 0.5rem 1.2rem;
+    background: white;
+    border-radius: 30px;
+    color: var(--chelgu-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+body.dark .nav-pill {
+    background: #1e293b;
+    color: #cbd5e1;
+}
+
+.nav-pill:hover {
+    background: var(--chelgu-primary);
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* Секции */
+.section-card {
+    margin: 3rem 0;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-icon {
+    font-size: 2rem;
+}
+
+.section-header h2 {
+    color: var(--chelgu-primary);
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+body.dark .section-header h2 {
+    color: #f1f5f9;
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Карточка направления */
+.direction-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+body.dark .direction-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.direction-card:hover {
+    transform: translateY(-3px);
+}
+
+.direction-code {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    letter-spacing: 1px;
+}
+
+body.dark .direction-code {
+    color: #60a5fa;
+}
+
+.direction-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--chelgu-secondary);
+    margin: 0.5rem 0;
+}
+
+.direction-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.detail-badge {
+    background: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--chelgu-primary);
+}
+
+body.dark .detail-badge {
+    background: #111827;
+    color: #cbd5e1;
+}
+
+.direction-desc {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-top: 1rem;
+}
+
+/* Профили */
+.profiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.profile-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .profile-card {
+    background: #111827;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.profile-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+body.dark .profile-card h3 {
+    color: #f1f5f9;
+}
+
+.profile-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Дисциплины */
+.disciplines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.discipline-category {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+body.dark .discipline-category {
+    background: #111827;
+}
+
+.discipline-category:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--chelgu-secondary);
+}
+
+.category-icon {
+    font-size: 1.5rem;
+}
+
+.category-header h3 {
+    color: var(--chelgu-primary);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.discipline-list {
+    list-style: none;
+    padding: 0;
+}
+
+.discipline-list li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.discipline-list li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--chelgu-secondary);
+}
+
+body.dark .discipline-list li {
+    color: #e5e7eb;
+}
+
+/* Навыки */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 51, 102, 0.3);
+}
+
+/* Практика */
+.practice-section {
+    margin: 3rem 0;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.practice-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .practice-card {
+    background: #111827;
+}
+
+.practice-card:hover {
+    transform: translateY(-5px);
+}
+
+.practice-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.practice-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.practice-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Дополнительная информация */
+.extra-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.info-tip {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--chelgu-secondary);
+}
+
+body.dark .info-tip {
+    background: #0f172a;
+}
+
+.tip-icon {
+    font-size: 1.8rem;
+}
+
+.info-tip strong {
+    color: var(--chelgu-primary);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.info-tip p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .page-nav {
+        gap: 0.5rem;
+    }
+    
+    .nav-pill {
+        padding: 0.3rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .direction-code {
+        font-size: 1.8rem;
+    }
+    
+    .direction-name {
+        font-size: 1.2rem;
+    }
+    
+    .profiles-grid,
+    .disciplines-grid,
+    .practice-grid,
+    .extra-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+}
+</style>
+
+{% endblock %}

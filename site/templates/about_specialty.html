@@ -1,0 +1,468 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>🔐 10.05.01 - Компьютерная безопасность</h1>
+    <p>Специализация: «Анализ безопасности компьютерных систем»</p>
+    <div style="margin-top: 1rem;">
+        <span class="badge">Квалификация: Специалист по защите информации</span>
+        <span class="badge">Срок обучения: 5,5 лет</span>
+        <span class="badge">Форма обучения: очная</span>
+    </div>
+</div>
+
+<!-- Навигация назад -->
+<div style="margin-bottom: 2rem;">
+    <a href="/about" class="btn" style="background: #6c757d; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ← Назад к "О кафедре"
+    </a>
+</div>
+
+<!-- Основная информация -->
+<div class="info-grid">
+    <div class="info-card">
+        <div class="info-icon">🎓</div>
+        <h3>Специальность</h3>
+        <p>10.05.01 — Компьютерная безопасность</p>
+        <span class="highlight">Анализ безопасности компьютерных систем</span>
+    </div>
+    
+    <div class="info-card">
+        <div class="info-icon">⏱️</div>
+        <h3>Срок обучения</h3>
+        <p>5,5 лет</p>
+        <span class="highlight">Очная форма</span>
+    </div>
+    
+    <div class="info-card">
+        <div class="info-icon">📜</div>
+        <h3>Квалификация</h3>
+        <p>Специалист по защите информации</p>
+        <span class="highlight">Государственный диплом</span>
+    </div>
+    
+    <div class="info-card">
+        <div class="info-icon">📊</div>
+        <h3>Вступительные экзамены</h3>
+        <p>Математика (профильная)</p>
+        <p>Информатика/Физика</p>
+        <p>Русский язык</p>
+    </div>
+</div>
+
+<!-- Эволюция специальности -->
+<div class="evolution-section">
+    <h2>📈 Эволюция кодов специальности</h2>
+    <p class="section-desc">Специальность «Компьютерная безопасность» прошла несколько этапов изменения кодировки в соответствии с приказами Министерства образования РФ</p>
+    
+    <div class="evolution-timeline">
+        <div class="evolution-item">
+            <div class="evolution-year">2000</div>
+            <div class="evolution-badge">Приказ № 3200</div>
+            <div class="evolution-code">Код: 075200</div>
+            <div class="evolution-desc">Первое официальное закрепление специальности</div>
+        </div>
+        
+        <div class="evolution-item">
+            <div class="evolution-year">2005</div>
+            <div class="evolution-badge">Приказ № 4</div>
+            <div class="evolution-code">Код: 090102</div>
+            <div class="evolution-desc">Переход в укрупненную группу 090000</div>
+        </div>
+        
+        <div class="evolution-item">
+            <div class="evolution-year">2009</div>
+            <div class="evolution-badge">Постановление № 1136</div>
+            <div class="evolution-code">Код: 090301</div>
+            <div class="evolution-desc">Обновление классификации</div>
+        </div>
+        
+        <div class="evolution-item current">
+            <div class="evolution-year">2013</div>
+            <div class="evolution-badge">Приказ № 1061</div>
+            <div class="evolution-code">Код: 10.05.01</div>
+            <div class="evolution-desc">Действующий стандарт</div>
+        </div>
+    </div>
+</div>
+
+<!-- Таблицы эволюции -->
+<div class="tables-container">
+    <div class="table-wrapper">
+        <h3>📋 2000 г. — Приказ Минобразования РФ № 3200</h3>
+        <table class="table modern-table">
+            <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>Специальность</th>
+                    <th>Квалификация</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>075100</td><td>Криптография</td><td>Математик</td></tr>
+                <tr class="highlight-row"><td><strong>075200</strong></td><td><strong>Компьютерная безопасность</strong></td><td><strong>Математик</strong></td></tr>
+                <tr><td>075300</td><td>Организация и технология защиты информации</td><td>Специалист по защите информации</td></tr>
+                <tr><td>075400</td><td>Комплексная защита объектов информации</td><td>Специалист по защите информации</td></tr>
+                <tr><td>075500</td><td>Комплексное обеспечение информационной безопасности АС</td><td>Специалист по защите информации</td></tr>
+                <tr><td>075600</td><td>Информационная безопасность телекоммуникационных систем</td><td>Специалист по защите информации</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-wrapper">
+        <h3>📋 2005 г. — Приказ Минобрнауки РФ № 4</h3>
+        <table class="table modern-table">
+            <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>Специальность</th>
+                    <th>Квалификация</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>090100</td><td>Информационная безопасность</td><td></td></tr>
+                <tr><td>090101</td><td>Криптография</td><td>Математик</td></tr>
+                <tr class="highlight-row"><td><strong>090102</strong></td><td><strong>Компьютерная безопасность</strong></td><td><strong>Математик</strong></td></tr>
+                <tr><td>090103</td><td>Организация и технология защиты информации</td><td>Специалист по защите информации</td></tr>
+                <tr><td>090104</td><td>Комплексная защита объектов информации</td><td>Специалист по защите информации</td></tr>
+                <tr><td>090105</td><td>Комплексное обеспечение ИБ АС</td><td>Специалист по защите информации</td></tr>
+                <tr><td>090106</td><td>Информационная безопасность телекоммуникационных систем</td><td>Специалист по защите информации</td></tr>
+                <tr><td>090107</td><td>Противодействие техническим разведкам</td><td>Специалист по защите информации</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-wrapper">
+        <h3>📋 2009 г. — Постановление № 1136</h3>
+        <table class="table modern-table">
+            <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>Специальность</th>
+                    <th>Квалификация</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>090900</td><td>Информационная безопасность</td><td></td></tr>
+                <tr><td>090101</td><td>Криптография</td><td></td></tr>
+                <tr><td>090201</td><td>Противодействие техническим разведкам</td><td></td></tr>
+                <tr class="highlight-row"><td><strong>090301</strong></td><td><strong>Компьютерная безопасность</strong></td><td></td></tr>
+                <tr><td>090302</td><td>Информационная безопасность телекоммуникационных систем</td><td></td></tr>
+                <tr><td>090303</td><td>Информационная безопасность автоматизированных систем</td><td></td></tr>
+                <tr><td>090305</td><td>Информационно-аналитические системы безопасности</td><td></td></tr>
+                <tr><td>090915</td><td>Безопасность информационных технологий в правоохранительной сфере</td><td></td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="table-wrapper current-table">
+        <h3>⭐ 2013 г. — Приказ Минобрнауки № 1061 (действующий)</h3>
+        <table class="table modern-table">
+            <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>Специальность/Направление</th>
+                    <th>Квалификация</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>10.03.01</td><td>Информационная безопасность</td><td>Академический бакалавр</td></tr>
+                <tr><td>10.04.01</td><td>Информационная безопасность</td><td>Магистр</td></tr>
+                <tr class="highlight-row current"><td><strong>10.05.01</strong></td><td><strong>Компьютерная безопасность</strong></td><td><strong>Специалист по защите информации</strong></td></tr>
+                <tr><td>10.05.02</td><td>Информационная безопасность телекоммуникационных систем</td><td>Специалист по защите информации</td></tr>
+                <tr><td>10.05.03</td><td>Информационная безопасность автоматизированных систем</td><td>Специалист по защите информации</td></tr>
+                <tr><td>10.05.04</td><td>Информационно-аналитические системы безопасности</td><td>Специалист по защите информации</td></tr>
+                <tr><td>10.05.05</td><td>Безопасность информационных технологий в правоохранительной сфере</td><td>Специалист по защите информации</td></tr>
+                <tr><td>10.06.01</td><td>Информационная безопасность</td><td>Исследователь. Преподаватель-исследователь</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Область профессиональной деятельности -->
+<div class="career-section">
+    <h2>💼 Область профессиональной деятельности</h2>
+    <div class="career-grid">
+        <div class="career-item">
+            <div class="career-icon">🏛️</div>
+            <h3>Государственные органы</h3>
+            <p>Органы государственной власти и управления</p>
+        </div>
+        <div class="career-item">
+            <div class="career-icon">🔬</div>
+            <h3>Научные организации</h3>
+            <p>Научно-исследовательские и проектные организации</p>
+        </div>
+        <div class="career-item">
+            <div class="career-icon">💻</div>
+            <h3>IT-компании</h3>
+            <p>Разработка и эксплуатация защищенных информационных систем</p>
+        </div>
+        <div class="career-item">
+            <div class="career-icon">🏦</div>
+            <h3>Финансовый сектор</h3>
+            <p>Финансово-кредитные учреждения</p>
+        </div>
+        <div class="career-item">
+            <div class="career-icon">🛡️</div>
+            <h3>Информационная безопасность</h3>
+            <p>Подразделения ИБ предприятий различных отраслей</p>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Стили для страницы */
+.badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Информационная сетка */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-card p {
+    margin: 0.3rem 0;
+}
+
+.highlight {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+body.dark .info-card {
+    background: #111827;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+/* Эволюция */
+.evolution-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+}
+
+body.dark .evolution-section {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.section-desc {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.evolution-timeline {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.evolution-item {
+    flex: 1;
+    min-width: 150px;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+body.dark .evolution-item {
+    background: #111827;
+}
+
+.evolution-item.current {
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    color: white;
+}
+
+.evolution-item.current .evolution-code,
+.evolution-item.current .evolution-desc {
+    color: white;
+}
+
+.evolution-year {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.evolution-badge {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.evolution-code {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--chelgu-primary);
+}
+
+.evolution-desc {
+    font-size: 0.85rem;
+}
+
+/* Таблицы */
+.tables-container {
+    margin: 2rem 0;
+}
+
+.table-wrapper {
+    margin-bottom: 2rem;
+    overflow-x: auto;
+}
+
+.table-wrapper h3 {
+    margin-bottom: 1rem;
+    color: var(--chelgu-primary);
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+body.dark .modern-table {
+    background: #111827;
+}
+
+.modern-table th {
+    background: var(--chelgu-primary);
+    color: white;
+    padding: 0.8rem;
+    font-weight: 600;
+}
+
+.modern-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+body.dark .modern-table td {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.highlight-row {
+    background: linear-gradient(90deg, rgba(0, 85, 170, 0.1), transparent);
+}
+
+.highlight-row.current {
+    background: linear-gradient(90deg, rgba(0, 85, 170, 0.2), transparent);
+}
+
+/* Карьера */
+.career-section {
+    margin: 3rem 0;
+}
+
+.career-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.career-item {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .career-item {
+    background: #111827;
+}
+
+.career-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.career-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.career-item h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .evolution-timeline {
+        flex-direction: column;
+    }
+    
+    .evolution-item {
+        min-width: auto;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .career-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+{% endblock %}

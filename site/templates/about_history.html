@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция для истории -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>📜 История кафедры</h1>
+    <p>25 лет развития и достижений в области компьютерной безопасности</p>
+</div>
+
+<!-- Навигация назад -->
+<div style="margin-bottom: 2rem;">
+    <a href="/about" class="btn" style="background: #6c757d; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ← Назад к "О кафедре"
+    </a>
+</div>
+
+<!-- Хронология событий -->
+<div class="timeline">
+    <div class="timeline-item">
+        <div class="timeline-year">2001</div>
+        <div class="timeline-content">
+            <h3>📌 Основание кафедры</h3>
+            <p>Кафедра компьютерной безопасности и прикладной алгебры создана в феврале 2001 года.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-year">2007</div>
+        <div class="timeline-content">
+            <h3>🎓 Первый выпуск</h3>
+            <p>Первый выпуск специалистов состоялся в 2007 году. Выпускники успешно работают в сфере информационной безопасности.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-content">
+            <h3>👨‍🏫 Новое руководство</h3>
+            <p>С 2010 года заведующим кафедрой стал доктор физико-математических наук, профессор Соловьёв Александр Артемович.</p>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-content">
+            <h3>⭐ Современный этап</h3>
+            <p>С 2018 года заведующим кафедрой является кандидат физико-математических наук, доцент Ручай Алексей Николаевич.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Карточки с заведующими кафедрой -->
+<h2 style="margin: 3rem 0 1.5rem; color: var(--chelgu-primary);">👥 Заведующие кафедрой</h2>
+<div class="heads-grid">
+    <div class="head-card">
+        <div class="head-icon">👨‍🎓</div>
+        <h3>Рожков Александр Викторович</h3>
+        <p class="head-period">2001 — 2010</p>
+        <p class="head-title">Доктор физико-математических наук, профессор</p>
+        <p class="head-desc">Основатель кафедры, заложивший традиции научной школы.</p>
+    </div>
+
+    <div class="head-card">
+        <div class="head-icon">👨‍🏫</div>
+        <h3>Соловьёв Александр Артемович</h3>
+        <p class="head-period">2010 — 2018</p>
+        <p class="head-title">Доктор физико-математических наук, профессор</p>
+        <p class="head-desc">Развитие научных направлений и укрепление академических связей.</p>
+    </div>
+
+    <div class="head-card">
+        <div class="head-icon">👨‍💼</div>
+        <h3>Ручай Алексей Николаевич</h3>
+        <p class="head-period">2018 — настоящее время</p>
+        <p class="head-title">Кандидат физико-математических наук, доцент</p>
+        <p class="head-desc">Современный этап развития, внедрение инновационных образовательных программ.</p>
+    </div>
+</div>
+
+<!-- Достижения и факты -->
+<div class="info-box" style="margin-top: 2rem;">
+    <h3 style="margin-bottom: 1rem;">🏆 Ключевые достижения</h3>
+    <ul class="achievements-list">
+        <li>📚 Подготовлено более <strong>500 специалистов</strong> в области компьютерной безопасности</li>
+        <li>🔬 Защищено <strong>15 кандидатских</strong> и <strong>3 докторские</strong> диссертации</li>
+        <li>📖 Опубликовано более <strong>300 научных работ</strong> в ведущих российских и международных изданиях</li>
+        <li>🤝 Установлены партнерские отношения с <strong>10+ компаниями</strong>-лидерами в сфере ИБ</li>
+        <li>🎓 Выпускники работают в <strong>ФСБ, МВД, крупных IT-компаниях</strong> и научных центрах</li>
+    </ul>
+</div>
+
+<style>
+/* Стили для хронологии */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--chelgu-primary), var(--chelgu-secondary));
+    border-radius: 3px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--chelgu-secondary);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--chelgu-secondary);
+}
+
+.timeline-year {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content h3 {
+    margin: 0 0 0.5rem;
+    color: var(--chelgu-secondary);
+}
+
+.timeline-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Сетка для заведующих */
+.heads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.head-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.head-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15);
+}
+
+.head-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.head-card h3 {
+    color: var(--chelgu-primary);
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.head-period {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+}
+
+.head-title {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+.head-desc {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Список достижений */
+.achievements-list {
+    list-style: none;
+    padding: 0;
+}
+
+.achievements-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+}
+
+.achievements-list li:last-child {
+    border-bottom: none;
+}
+
+.achievements-list strong {
+    color: var(--chelgu-primary);
+    font-weight: 600;
+}
+
+/* Темная тема */
+body.dark .timeline-year {
+    color: #60a5fa;
+}
+
+body.dark .timeline-item::before {
+    background: #60a5fa;
+    box-shadow: 0 0 0 2px #60a5fa;
+}
+
+body.dark .head-card {
+    background: #111827;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .head-card h3 {
+    color: #f1f5f9;
+}
+
+body.dark .head-title {
+    color: #94a3b8;
+}
+
+body.dark .achievements-list li {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .achievements-list strong {
+    color: #60a5fa;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1rem;
+    }
+    
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-year {
+        font-size: 1.2rem;
+    }
+    
+    .heads-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+{% endblock %}

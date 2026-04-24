@@ -1,0 +1,656 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>🎓 Абитуриенту</h1>
+    <p>Добро пожаловать на кафедру компьютерной безопасности ЧелГУ!</p>
+    <div class="hero-buttons">
+        <a href="#admission" class="btn" style="background: rgba(255,255,255,0.2);">Как поступить</a>
+        <a href="#benefits" class="btn" style="background: rgba(255,255,255,0.2);">Преимущества</a>
+    </div>
+</div>
+
+<!-- Статистика -->
+<div class="stats-applicant">
+    <div class="stat-applicant-item">
+        <div class="stat-applicant-number">100%</div>
+        <div class="stat-applicant-label">трудоустройство выпускников</div>
+    </div>
+    <div class="stat-applicant-item">
+        <div class="stat-applicant-number">5+</div>
+        <div class="stat-applicant-label">лет обучения</div>
+    </div>
+    <div class="stat-applicant-item">
+        <div class="stat-applicant-number">203</div>
+        <div class="stat-applicant-label">проходной балл (бюджет)</div>
+    </div>
+    <div class="stat-applicant-item">
+        <div class="stat-applicant-number">10+</div>
+        <div class="stat-applicant-label">компаний-партнеров</div>
+    </div>
+</div>
+
+<!-- Почему стоит выбрать нас -->
+<div id="benefits" class="section-card">
+    <h2>✨ Почему стоит выбрать нас?</h2>
+    <div class="benefits-grid">
+        <div class="benefit-item">
+            <div class="benefit-icon">💼</div>
+            <h3>Высокий спрос на специалистов</h3>
+            <p>Выпускники востребованы в IT-компаниях, госструктурах и финансовом секторе</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon">⚙️</div>
+            <h3>Практика с первого курса</h3>
+            <p>Реальные проекты, лабораторные работы, участие в исследованиях</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon">👨‍🏫</div>
+            <h3>Опытные преподаватели</h3>
+            <p>Кандидаты и доктора наук, практикующие специалисты по информационной безопасности</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon">🔬</div>
+            <h3>Современная материальная база</h3>
+            <p>Специализированные лаборатории, современное оборудование</p>
+        </div>
+    </div>
+</div>
+
+<!-- Как поступить -->
+<div id="admission" class="admission-section">
+    <h2>📋 Как поступить</h2>
+    <div class="steps-container">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Выберите направление</h3>
+            <p>10.05.01 - Компьютерная безопасность</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Подготовьте документы</h3>
+            <p>Паспорт, аттестат, результаты ЕГЭ</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Подайте заявление</h3>
+            <p>Через личный кабинет абитуриента или очно</p>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Ожидайте зачисления</h3>
+            <p>Следите за рейтинговыми списками</p>
+        </div>
+    </div>
+</div>
+
+<!-- Экзамены -->
+<div class="exams-section">
+    <h2>📚 Вступительные испытания (ЕГЭ)</h2>
+    <div class="exams-grid">
+        <div class="exam-card">
+            <div class="exam-icon">📐</div>
+            <h3>Математика</h3>
+            <p>Профильный уровень</p>
+            <span class="exam-priority">обязательный</span>
+        </div>
+        <div class="exam-card">
+            <div class="exam-icon">💻</div>
+            <h3>Информатика и ИКТ</h3>
+            <p>ИЛИ</p>
+            <span class="exam-choice">выбор</span>
+        </div>
+        <div class="exam-card">
+            <div class="exam-icon">⚛️</div>
+            <h3>Физика</h3>
+            <p>ИЛИ</p>
+            <span class="exam-choice">выбор</span>
+        </div>
+        <div class="exam-card">
+            <div class="exam-icon">📖</div>
+            <h3>Русский язык</h3>
+            <p>Обязательный</p>
+            <span class="exam-priority">обязательный</span>
+        </div>
+    </div>
+</div>
+
+<!-- Проходные баллы -->
+<div class="scores-section">
+    <h2>📊 Проходные баллы (2025 год)</h2>
+    <div class="scores-grid">
+        <div class="score-card budget">
+            <div class="score-type">Бюджет</div>
+            <div class="score-value">203</div>
+            <div class="score-places">15 бюджетных мест</div>
+        </div>
+        <div class="score-card contract">
+            <div class="score-type">Контракт</div>
+            <div class="score-value">186</div>
+            <div class="score-places">20+ мест</div>
+        </div>
+    </div>
+    <div class="info-note">
+        <span class="info-icon">ℹ️</span>
+        <p>Минимальные баллы: Математика - 39, Информатика/Физика - 40, Русский язык - 40</p>
+    </div>
+</div>
+
+<!-- Дни открытых дверей -->
+<div class="open-days-section">
+    <h2>🏛️ Дни открытых дверей</h2>
+    <div class="open-days-card">
+        <div class="open-days-date">
+            <div class="date-day">15</div>
+            <div class="date-month">Марта</div>
+            <div class="date-year">2026</div>
+        </div>
+        <div class="open-days-info">
+            <h3>Ближайший день открытых дверей</h3>
+            <div class="format-badge">
+                <span class="format">🖥️ Онлайн</span>
+                <span class="format">🏢 Очно</span>
+            </div>
+            <p>📍 Адрес: г. Челябинск, ул. Братьев Кашириных, 129, ауд. 412</p>
+            <p>🕐 Начало в 12:00</p>
+            <a href="https://abit.csu.ru" target="_blank" class="btn-link">Перейти на сайт абитуриента →</a>
+        </div>
+    </div>
+</div>
+
+<!-- Контакты приемной комиссии -->
+<div class="contacts-section">
+    <h2>📞 Контакты приемной комиссии</h2>
+    <div class="contacts-grid">
+        <div class="contact-item-applicant">
+            <span class="contact-icon-applicant">📞</span>
+            <div>
+                <strong>Телефон:</strong>
+                <a href="tel:+73517997292">+7 (351) 799-72-92</a>
+            </div>
+        </div>
+        <div class="contact-item-applicant">
+            <span class="contact-icon-applicant">📧</span>
+            <div>
+                <strong>Email:</strong>
+                <a href="mailto:csukbcp2011@gmail.com">csukbcp2011@gmail.com</a>
+            </div>
+        </div>
+        <div class="contact-item-applicant">
+            <span class="contact-icon-applicant">🌐</span>
+            <div>
+                <strong>Сайт:</strong>
+                <a href="https://abit.csu.ru" target="_blank">abit.csu.ru</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Статистика */
+.stats-applicant {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-applicant-item {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.stat-applicant-item:hover {
+    transform: translateY(-5px);
+}
+
+body.dark .stat-applicant-item {
+    background: #0d131f;
+}
+
+.stat-applicant-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+    line-height: 1;
+}
+
+body.dark .stat-applicant-number {
+    color: #75aff7;
+}
+
+.stat-applicant-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+/* Секция преимуществ */
+.section-card {
+    margin: 3rem 0;
+}
+
+.section-card h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.benefit-item {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .benefit-item {
+    background: #111827;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-item h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+body.dark .benefit-item h3 {
+    color: #f1f5f9;
+}
+
+.benefit-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Шаги поступления */
+.admission-section {
+    margin: 3rem 0;
+}
+
+.admission-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.step {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .step {
+    background: #111827;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--chelgu-primary), var(--chelgu-secondary));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.step h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+body.dark .step h3 {
+    color: #f1f5f9;
+}
+
+.step p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* Экзамены */
+.exams-section {
+    margin: 3rem 0;
+}
+
+.exams-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.exams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.exam-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+body.dark .exam-card {
+    background: #111827;
+}
+
+.exam-card:hover {
+    transform: translateY(-5px);
+}
+
+.exam-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.exam-card h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.exam-card p {
+    color: var(--text-light);
+    margin: 0.5rem 0;
+}
+
+.exam-priority {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+.exam-choice {
+    display: inline-block;
+    background: #ffc107;
+    color: #333;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+/* Проходные баллы */
+.scores-section {
+    margin: 3rem 0;
+}
+
+.scores-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.scores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.score-card {
+    background: #111827;
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.score-card:hover {
+    transform: translateY(-5px);
+}
+
+.score-card.budget {
+    border-top: 4px solid #28a745;
+}
+
+.score-card.contract {
+    border-top: 4px solid #ffc107;
+}
+
+.score-type {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--chelgu-primary);
+    margin-bottom: 1rem;
+}
+
+.score-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--chelgu-secondary);
+}
+
+.score-places {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.info-note {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+body.dark .info-note {
+    background: #0f172a;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+}
+
+/* Дни открытых дверей */
+.open-days-section {
+    margin: 3rem 0;
+}
+
+.open-days-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.open-days-card {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body.dark .open-days-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.open-days-date {
+    text-align: center;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--radius);
+    min-width: 100px;
+}
+
+body.dark .open-days-date {
+    background: #111827;
+}
+
+.date-day {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--chelgu-primary);
+}
+
+.date-month {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.date-year {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.open-days-info {
+    flex: 1;
+}
+
+.open-days-info h3 {
+    color: var(--chelgu-primary);
+    margin-bottom: 0.5rem;
+}
+
+.format-badge {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.format {
+    background: rgba(0, 85, 170, 0.1);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--chelgu-primary);
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--chelgu-secondary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* Контакты */
+.contacts-section {
+    margin: 3rem 0;
+}
+
+.contacts-section h2 {
+    color: var(--chelgu-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.contact-item-applicant {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+}
+
+body.dark .contact-item-applicant {
+    background: #111827;
+}
+
+.contact-icon-applicant {
+    font-size: 1.5rem;
+}
+
+.contact-item-applicant a {
+    color: var(--chelgu-secondary);
+    text-decoration: none;
+}
+
+.contact-item-applicant a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .stats-applicant {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .benefits-grid,
+    .steps-container,
+    .exams-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .scores-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .open-days-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .format-badge {
+        justify-content: center;
+    }
+    
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+{% endblock %}

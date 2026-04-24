@@ -1,0 +1,505 @@
+<!-- Предпросмотр материала -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero секция -->
+<div class="hero" style="background: linear-gradient(135deg, #003366, #0055aa);">
+    <h1>👁️ Предпросмотр материала</h1>
+    <p>{{ material.title }}</p>
+</div>
+
+<!-- Навигация назад -->
+<div style="margin-bottom: 2rem;">
+    <a href="/materials/{{ material.discipline }}" class="btn" style="background: #6c757d; display: inline-flex; align-items: center; gap: 0.5rem;">
+        ← Назад к материалам
+    </a>
+</div>
+
+<div class="preview-container">
+    <!-- Основная информация -->
+    <div class="info-section">
+        <div class="section-header">
+            <span class="section-icon">📋</span>
+            <h2>Основная информация</h2>
+        </div>
+        <div class="info-grid-preview">
+            <div class="info-item-preview">
+                <span class="info-label">📝 Название:</span>
+                <span class="info-value">{{ material.title }}</span>
+            </div>
+            <div class="info-item-preview">
+                <span class="info-label">👨‍🏫 Автор:</span>
+                <span class="info-value">{{ material.author }}</span>
+            </div>
+            <div class="info-item-preview">
+                <span class="info-label">📅 Год:</span>
+                <span class="info-value">{{ material.year }}</span>
+            </div>
+            <div class="info-item-preview">
+                <span class="info-label">📚 Дисциплина:</span>
+                <span class="info-value">{{ material.discipline }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Аннотация -->
+    <div class="info-section">
+        <div class="section-header">
+            <span class="section-icon">📖</span>
+            <h2>Аннотация</h2>
+        </div>
+        <div class="annotation-content">
+            <p>{{ material.description }}</p>
+        </div>
+    </div>
+
+    <!-- Фрагмент текста -->
+    {% if material.preview_text %}
+    <div class="info-section preview-text-section">
+        <div class="section-header">
+            <span class="section-icon">✍️</span>
+            <h2>Фрагмент текста</h2>
+        </div>
+        <div class="preview-text-content">
+            <div class="quote-mark">“</div>
+            <p>{{ material.preview_text }}</p>
+            <div class="quote-mark-end">”</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- PDF просмотр -->
+    {% if material.file_path %}
+    <div class="info-section pdf-section">
+        <div class="section-header">
+            <span class="section-icon">📄</span>
+            <h2>Просмотр PDF</h2>
+        </div>
+        <div class="pdf-container">
+            <div class="pdf-placeholder">
+                <div class="pdf-icon">📄</div>
+                <p>PDF-файл доступен для скачивания</p>
+                <a href="{{ material.file_path }}" target="_blank" class="btn pdf-download-btn">
+                    📥 Скачать PDF
+                </a>
+            </div>
+        </div>
+        <div class="pdf-note">
+            <span class="note-icon">ℹ️</span>
+            <em>Полная версия материала доступна для скачивания авторизованным пользователям.</em>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Внешняя ссылка -->
+    {% if material.external_link %}
+    <div class="external-section">
+        <div class="external-card">
+            <div class="external-icon">🔗</div>
+            <div class="external-content">
+                <h3>Полная версия материала</h3>
+                <p>Материал доступен по внешней ссылке. Нажмите для перехода:</p>
+                <a href="{{ material.external_link }}" target="_blank" class="external-link-btn">
+                    Перейти к полной версии
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Дополнительная информация -->
+    <div class="info-note-preview">
+        <div class="note-icon">💡</div>
+        <div class="note-content">
+            <strong>Совет:</strong> Для получения полного доступа ко всем материалам обратитесь к преподавателю 
+            или на кафедру компьютерной безопасности.
+        </div>
+    </div>
+</div>
+
+<style>
+/* Основной контейнер */
+.preview-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Секции информации */
+.info-section {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+body.dark .info-section {
+    background: #111827;
+}
+
+.info-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.15);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--chelgu-secondary);
+}
+
+.section-icon {
+    font-size: 1.8rem;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: var(--chelgu-primary);
+    font-size: 1.3rem;
+}
+
+body.dark .section-header h2 {
+    color: #f1f5f9;
+}
+
+/* Сетка информации */
+.info-grid-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.info-item-preview {
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+body.dark .info-item-preview {
+    background: #0f172a;
+}
+
+.info-item-preview:hover {
+    background: #e9ecef;
+    transform: translateX(3px);
+}
+
+body.dark .info-item-preview:hover {
+    background: #1e293b;
+}
+
+.info-label {
+    display: block;
+    font-weight: 600;
+    color: var(--chelgu-primary);
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+}
+
+body.dark .info-label {
+    color: #60a5fa;
+}
+
+.info-value {
+    display: block;
+    color: var(--text-color);
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+body.dark .info-value {
+    color: #e5e7eb;
+}
+
+/* Аннотация */
+.annotation-content {
+    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.annotation-content p {
+    margin: 0;
+}
+
+/* Фрагмент текста */
+.preview-text-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+body.dark .preview-text-section {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.preview-text-content {
+    position: relative;
+    padding: 1.5rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.quote-mark {
+    font-size: 3rem;
+    color: var(--chelgu-secondary);
+    opacity: 0.5;
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    font-family: serif;
+}
+
+.quote-mark-end {
+    font-size: 3rem;
+    color: var(--chelgu-secondary);
+    opacity: 0.5;
+    position: absolute;
+    bottom: -1rem;
+    right: -0.5rem;
+    font-family: serif;
+    transform: rotate(180deg);
+}
+
+.preview-text-content p {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* PDF секция */
+.pdf-container {
+    margin: 1rem 0;
+}
+
+.pdf-placeholder {
+    background: #f8f9fa;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+body.dark .pdf-placeholder {
+    background: #0f172a;
+}
+
+.pdf-placeholder:hover {
+    border-color: var(--chelgu-secondary);
+    background: #e9ecef;
+}
+
+body.dark .pdf-placeholder:hover {
+    background: #1e293b;
+}
+
+.pdf-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.pdf-placeholder p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.pdf-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--chelgu-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pdf-download-btn:hover {
+    background: var(--chelgu-primary-dark);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+}
+
+.pdf-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: #fff3cd;
+    border-radius: 8px;
+    color: #856404;
+}
+
+body.dark .pdf-note {
+    background: #2c2a1e;
+    color: #ffd966;
+}
+
+.note-icon {
+    font-size: 1.2rem;
+}
+
+/* Внешняя ссылка */
+.external-section {
+    margin-bottom: 2rem;
+}
+
+.external-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e8f0fe, #d9e6ff);
+    border-radius: var(--radius);
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+
+body.dark .external-card {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.external-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.external-icon {
+    font-size: 2.5rem;
+}
+
+.external-content {
+    flex: 1;
+}
+
+.external-content h3 {
+    color: var(--chelgu-primary);
+    margin: 0 0 0.3rem;
+    font-size: 1.2rem;
+}
+
+body.dark .external-content h3 {
+    color: #60a5fa;
+}
+
+.external-content p {
+    color: var(--text-light);
+    margin: 0 0 1rem;
+}
+
+.external-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--chelgu-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.external-link-btn:hover {
+    background: var(--chelgu-primary-dark);
+    transform: translateX(5px);
+    text-decoration: none;
+    color: white;
+}
+
+.btn-arrow {
+    transition: transform 0.2s;
+}
+
+.external-link-btn:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+/* Информационная заметка */
+.info-note-preview {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #e7f3ff;
+    border-radius: var(--radius);
+    margin-top: 2rem;
+    border-left: 4px solid var(--chelgu-secondary);
+}
+
+body.dark .info-note-preview {
+    background: #0f172a;
+}
+
+.info-note-preview .note-icon {
+    font-size: 1.5rem;
+}
+
+.info-note-preview .note-content {
+    flex: 1;
+    color: var(--text-color);
+}
+
+.info-note-preview .note-content strong {
+    color: var(--chelgu-primary);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+body.dark .info-note-preview .note-content strong {
+    color: #60a5fa;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .preview-container {
+        padding: 0;
+    }
+    
+    .info-section {
+        padding: 1.2rem;
+    }
+    
+    .info-grid-preview {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-icon {
+        font-size: 1.5rem;
+    }
+    
+    .external-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .quote-mark,
+    .quote-mark-end {
+        display: none;
+    }
+    
+    .preview-text-content {
+        padding: 0;
+    }
+    
+    .info-note-preview {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+{% endblock %}
